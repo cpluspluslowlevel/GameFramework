@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+# Temporary Forder
+.vs/
+Intermedia/*
+Build/*
+!Build/Resource
+!ThirdParty

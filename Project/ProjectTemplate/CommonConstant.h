@@ -1,0 +1,9 @@
+#ifndef _FRAMEWORK_PROJECTTEMPLATE_COMMONCONSTANT_H_
+#define _FRAMEWORK_PROJECTTEMPLATE_COMMONCONSTANT_H_
+
+namespace Framework::ProjectTemplate
+{
+
+}
+
+#endif
