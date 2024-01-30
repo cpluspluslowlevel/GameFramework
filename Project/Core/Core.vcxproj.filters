@@ -22,6 +22,18 @@
     <ClInclude Include="Type.h">
       <Filter>0.Global</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleRequireFunction.h">
+      <Filter>1.System\2.Module</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>1.System\2.Module</Filter>
+    </ClInclude>
+    <ClInclude Include="HashTable.h">
+      <Filter>1.System\0.DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>1.System\0.DataStruct</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="0.Global">
@@ -33,16 +45,28 @@
     <Filter Include="1.System">
       <UniqueIdentifier>{298d7fc0-aa95-4865-9cc9-20c439121d68}</UniqueIdentifier>
     </Filter>
-    <Filter Include="1.System\1.Module">
+    <Filter Include="1.System\1.Reflection">
+      <UniqueIdentifier>{5fbd08e3-6f07-4560-ad62-8a4722dc1a05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1.System\2.Module">
       <UniqueIdentifier>{0bc48009-cb29-4738-93ce-65c4d89b7de1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="1.System\0.Reflection">
-      <UniqueIdentifier>{5fbd08e3-6f07-4560-ad62-8a4722dc1a05}</UniqueIdentifier>
+    <Filter Include="1.System\0.DataStruct">
+      <UniqueIdentifier>{78702859-ad94-4300-ba1e-c65a23214414}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>0.Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Module.cpp">
+      <Filter>1.System\2.Module</Filter>
+    </ClCompile>
+    <ClCompile Include="HashTable.cpp">
+      <Filter>1.System\0.DataStruct</Filter>
+    </ClCompile>
+    <ClCompile Include="List.cpp">
+      <Filter>1.System\0.DataStruct</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

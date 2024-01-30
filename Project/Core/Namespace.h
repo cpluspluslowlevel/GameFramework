@@ -8,6 +8,10 @@ namespace Framework::Core
     {
     }
 
+    namespace DataStruct
+    {
+    }
+
 }
 
 #endif
