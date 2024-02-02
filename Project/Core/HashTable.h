@@ -13,11 +13,13 @@ namespace Framework::Core::DataStruct
         using KeyType   = _KeyType;
         using ValueType = _ValueType;
 
-        struct Element
+        struct ELEMENT
         {
             KeyType     key;
             ValueType   value;
         };
+
+        using ElementType = ELEMENT;
 
     private:
 
