@@ -17,25 +17,24 @@ namespace Framework::Core::DataStruct
     public:
         SingleLinkedListNode() : value{}, next{ nullptr } {}
 
-        SingleLinkedListNode(ElementType& v, SingleLinkedListNode* n) : value{ v }, next{ n } {}
+        SingleLinkedListNode(Type& v, SingleLinkedListNode* n) : value{ v }, next{ n } {}
 
-        SingleLinkedListNode& operator=(const SingleLinkedListNode& lvalue) : value{ lvalue.value }, next{ lvalue.next } { return *this; }
+        SingleLinkedListNode(const SingleLinkedListNode& lvalue) : value{ lvalue.value }, next{ lvalue.next } {}
 
-        SingleLinkedListNode& operator=(SingleLinkedListNode&& rvalue) noexcept : value{ std::move(rvalue.value) },
-                                                                                    next{ rvalue.next }
+        SingleLinkedListNode(SingleLinkedListNode&& rvalue) noexcept : value{ std::move(rvalue.value) },
+                                                                       next{ rvalue.next }
         {
             rvalue.next = nullptr;      //value가 무거운 형식일 수도 있기 때문에 성능을 위해 rvalue.value를 초기화 하진 않습니다.
-            return *this;
         }
 
-        SingleLinkedListNode& operator=(const SingleLinkedList& lvalue)
+        SingleLinkedListNode& operator=(const SingleLinkedListNode& lvalue)
         {
             value   = lvalue.value;
             next    = lvalue.next;
             return *this;
         }
 
-        SingleLinkedListNode& operator=(SingleLinkedList&& rvalue) noexcept
+        SingleLinkedListNode& operator=(SingleLinkedListNode&& rvalue) noexcept
         {
             value = rvalue.value;
             next  = rvalue.next;
