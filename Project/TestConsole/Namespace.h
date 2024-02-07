@@ -9,10 +9,13 @@ namespace Framework::TestConsole
 
     namespace DataStruct
     {
+
+        namespace Container{}
+
         namespace LinkedList
         {
-
         }
+
     }
 
 }

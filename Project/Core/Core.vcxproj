@@ -175,7 +175,7 @@
     <ClInclude Include="CommonConstant.h" />
     <ClInclude Include="CommonStruct.h" />
     <ClInclude Include="HashTable.h" />
-    <ClInclude Include="List.h" />
+    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleRequireFunction.h" />
     <ClInclude Include="Namespace.h" />
@@ -185,7 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HashTable.cpp" />
-    <ClCompile Include="List.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
