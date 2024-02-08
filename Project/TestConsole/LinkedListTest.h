@@ -5,6 +5,7 @@ namespace Framework::TestConsole::DataStruct::LinkedList
 {
 
     int TestSingleLinkedList();
+    int TestDoubleLinkedList();
 
 }
 

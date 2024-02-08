@@ -9,6 +9,13 @@ int main()
     {
         return -1;
     }
+    std::cout << std::endl << std::endl << std::endl;
+
+    if (Framework::TestConsole::DataStruct::LinkedList::TestDoubleLinkedList() != 0)
+    {
+        return -1;
+    }
+    std::cout << std::endl << std::endl << std::endl;
 
     return 0;
 

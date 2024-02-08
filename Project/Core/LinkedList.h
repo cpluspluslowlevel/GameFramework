@@ -14,43 +14,13 @@ namespace Framework::Core::DataStruct::LinkedList
 
 
     public:
-        SingleLinkedListNode() : value{}, next{ nullptr } {}
-
+        SingleLinkedListNode() = default;
         SingleLinkedListNode(const Type& v) : value{ v }, next{ nullptr } {}
-
-        SingleLinkedListNode(const Type& v, SingleLinkedListNode* n) : value{ v }, next{ n } {}
-
-        SingleLinkedListNode(const SingleLinkedListNode& lvalue) : value{ lvalue.value }, next{ lvalue.next } {}
-
-        SingleLinkedListNode(SingleLinkedListNode&& rvalue) noexcept : value{ std::move(rvalue.value) },
-                                                                       next{ rvalue.next }
-        {
-            rvalue.next = nullptr;      //value가 무거운 형식일 수도 있기 때문에 성능을 위해 rvalue.value를 초기화 하진 않습니다.
-        }
-
-        SingleLinkedListNode& operator=(const SingleLinkedListNode& lvalue)
-        {
-
-            value   = lvalue.value;
-            next    = lvalue.next;
-
-            return *this;
-
-        }
-
-        SingleLinkedListNode& operator=(SingleLinkedListNode&& rvalue) noexcept
-        {
-
-            value = std::move(rvalue.value);
-            next  = rvalue.next;
-
-            rvalue.next = nullptr;      //value가 무거운 형식일 수도 있기 때문에 성능을 위해 rvalue.value를 초기화 하진 않습니다.
-
-            return *this;
-
-        }
-
-        ~SingleLinkedListNode() noexcept {}
+        SingleLinkedListNode(const SingleLinkedListNode&) = delete;
+        SingleLinkedListNode(SingleLinkedListNode&&) noexcept = delete;
+        ~SingleLinkedListNode() noexcept = default;
+        SingleLinkedListNode& operator=(const SingleLinkedListNode&) = delete;
+        SingleLinkedListNode& operator=(SingleLinkedListNode&&) noexcept = delete;
 
 
         void LinkNext(SingleLinkedListNode* newNode)
@@ -161,45 +131,13 @@ namespace Framework::Core::DataStruct::LinkedList
     {
     public:
         DoubleLinkedListNode() : value{}, prev{ nullptr }, next{ nullptr } {}
-
         DoubleLinkedListNode(const Type& v) : value{ v }, prev{ nullptr }, next{ nullptr } {}
+        DoubleLinkedListNode(const DoubleLinkedListNode&) = delete;
+        DoubleLinkedListNode(DoubleLinkedListNode&&) noexcept = delete;
+        ~DoubleLinkedListNode() noexcept = default;
+        DoubleLinkedListNode& operator=(const DoubleLinkedListNode&) = delete;
+        DoubleLinkedListNode& operator=(DoubleLinkedListNode&&) noexcept = delete;
 
-        DoubleLinkedListNode(const Type& v, DoubleLinkedListNode* p, DoubleLinkedListNode* n) : value{ v }, prev{ p }, next{ n } {}
-
-        DoubleLinkedListNode(const DoubleLinkedListNode& lvalue) : value{ lvalue.value }, prev{ lvalue.prev }, next{ lvalue.next } {}
-
-        DoubleLinkedListNode(DoubleLinkedListNode&& rvalue) noexcept : value{ std::move(rvalue.value) }, prev{ rvalue.prev }, next{ rvalue.next }
-        {
-            rvalue.prev = nullptr;      //value가 무거운 형식일 수도 있기 때문에 성능을 위해 rvalue.value를 초기화 하진 않습니다.
-            rvalue.next = nullptr;
-        }
-
-        DoubleLinkedListNode& operator=(const DoubleLinkedListNode& lvalue)
-        {
-            
-            value   = lvalue.value;
-            prev    = lvalue.prev;
-            next    = lvalue.next;
-
-            return *this;
-
-        }
-
-        DoubleLinkedListNode& operator=(DoubleLinkedListNode&& rvalue) noexcept
-        {
-            
-            value   = std::move(rvalue.value);
-            prev    = rvalue.prev;
-            next    = rvalue.next;
-
-            rvalue.prev = nullptr;      //value가 무거운 형식일 수도 있기 때문에 성능을 위해 rvalue.value를 초기화 하진 않습니다.
-            rvalue.next = nullptr;
-
-            return *this;
-
-        }
-
-        ~DoubleLinkedListNode() noexcept {}
 
 
         void LinkPrev(DoubleLinkedListNode* newNode)
@@ -279,6 +217,8 @@ namespace Framework::Core::DataStruct::LinkedList
 
             }
 
+            return nullptr;
+
         }
 
         Type                    value;
@@ -302,13 +242,41 @@ namespace Framework::Core::DataStruct::LinkedList
     }
 
     template<typename Type>
+    const DoubleLinkedListNode<Type>* GetFirstNode(const DoubleLinkedListNode<Type>* node)
+    {
+
+        auto firstNode{ node };
+        while (firstNode->prev != nullptr)
+        {
+            firstNode = firstNode->prev;
+        }
+
+        return firstNode;
+
+    }
+
+    template<typename Type>
     DoubleLinkedListNode<Type>* GetLastNode(DoubleLinkedListNode<Type>* node)
     {
 
         auto lastNode{ node };
         while (lastNode->next != nullptr)
         {
-            lastNode = lastNode->last;
+            lastNode = lastNode->next;
+        }
+
+        return lastNode;
+
+    }
+
+    template<typename Type>
+    const DoubleLinkedListNode<Type>* GetLastNode(const DoubleLinkedListNode<Type>* node)
+    {
+
+        auto lastNode{ node };
+        while (lastNode->next != nullptr)
+        {
+            lastNode = lastNode->next;
         }
 
         return lastNode;
@@ -340,11 +308,16 @@ namespace Framework::Core::DataStruct::LinkedList
     {
 
         auto firstNode{ GetFirstNode(node) };
+
+        //처음 노드 뒤에 노드가 있다면 노드가 리스트로 연결되어 있습니다.
         if (firstNode->next != nullptr)
         {
-            firstNode->next->prev = nullptr;
+            firstNode->next->prev   = nullptr;
+            firstNode->next         = nullptr;
+            return firstNode;
         }
-        firstNode->next = nullptr;
+
+        //처음 노드 뒤에 노드가 없다면 단일 노드입니다.
 
         return firstNode;
 
@@ -355,11 +328,16 @@ namespace Framework::Core::DataStruct::LinkedList
     {
 
         auto lastNode{ GetLastNode(node) };
+        
+        //마지막 노드 앞에 노드가 있다면 노드가 리스트로 연결되어 있습니다.
         if (lastNode->prev != nullptr)
         {
             lastNode->prev->next = nullptr;
+            lastNode->prev       = nullptr;
+            return lastNode;
         }
-        lastNode->prev = nullptr;
+
+        //마지막 노드 앞에 노드가 없다면 단일 노드입니다.
 
         return lastNode;
 
@@ -387,7 +365,49 @@ namespace Framework::Core::DataStruct::LinkedList
     }
 
     template<typename Type>
+    const DoubleLinkedListNode<Type>* SearchNodePrev(const DoubleLinkedListNode<Type>* node, const Type& value)
+    {
+
+        auto loopNode{ node };
+        while (loopNode != nullptr)
+        {
+
+            if (loopNode->value == value)
+            {
+                return loopNode;
+            }
+
+            loopNode = loopNode->prev;
+
+        }
+
+        return nullptr;
+
+    }
+
+    template<typename Type>
     DoubleLinkedListNode<Type>* SearchNodeNext(DoubleLinkedListNode<Type>* node, const Type& value)
+    {
+
+        auto loopNode{ node };
+        while (loopNode != nullptr)
+        {
+
+            if (loopNode->value == value)
+            {
+                return loopNode;
+            }
+
+            loopNode = loopNode->next;
+
+        }
+
+        return nullptr;
+
+    }
+
+    template<typename Type>
+    const DoubleLinkedListNode<Type>* SearchNodeNext(const DoubleLinkedListNode<Type>* node, const Type& value)
     {
 
         auto loopNode{ node };
