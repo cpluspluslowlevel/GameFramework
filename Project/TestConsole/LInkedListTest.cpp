@@ -97,7 +97,7 @@ namespace Framework::TestConsole::DataStruct::LinkedList
         insertHead = new SingleLinkedListNode<int>{ 5000, insertHead };
         PrintList("First insertion: ", *insertHead);
 
-        LinkLast(insertHead, new SingleLinkedListNode<int>{ 6000, nullptr });
+        LinkLastNode(insertHead, new SingleLinkedListNode<int>{ 6000, nullptr });
         PrintList("Back insertion: ", *insertHead);
 
         std::cout << "------------------------------------------------------------------------" << std::endl;
@@ -123,7 +123,7 @@ namespace Framework::TestConsole::DataStruct::LinkedList
         delete deleteTemp;
         PrintList("First delete: ", *deleteHead);
 
-        delete UnlinkLast(deleteHead);
+        delete UnlinkLastNode(deleteHead);
         PrintList("Last delete", *deleteHead);
 
         std::cout << "------------------------------------------------------------------------" << std::endl;
@@ -131,15 +131,15 @@ namespace Framework::TestConsole::DataStruct::LinkedList
         //탐색
         //특정 값을 갖는 노드를 찾을 수 있는가
         auto findHead = new SingleLinkedListNode<int>{ 1000, nullptr };
-        LinkLast(findHead, new SingleLinkedListNode<int>{ 2000, nullptr });
-        LinkLast(findHead, new SingleLinkedListNode<int>{ 3000, nullptr });
-        LinkLast(findHead, new SingleLinkedListNode<int>{ 4000, nullptr });
-        LinkLast(findHead, new SingleLinkedListNode<int>{ 5000, nullptr });
+        LinkLastNode(findHead, new SingleLinkedListNode<int>{ 2000, nullptr });
+        LinkLastNode(findHead, new SingleLinkedListNode<int>{ 3000, nullptr });
+        LinkLastNode(findHead, new SingleLinkedListNode<int>{ 4000, nullptr });
+        LinkLastNode(findHead, new SingleLinkedListNode<int>{ 5000, nullptr });
 
         PrintList("Base: ", *findHead);
-        PrintList("Find(3000): ", *FindFirst(findHead, 3000));
-        PrintList("Find(1000): ", *FindFirst(findHead, 1000));
-        PrintList("Find(5000): ", *FindFirst(findHead, 5000));
+        PrintList("Find(3000): ", *SearchNode(findHead, 3000));
+        PrintList("Find(1000): ", *SearchNode(findHead, 1000));
+        PrintList("Find(5000): ", *SearchNode(findHead, 5000));
         
         std::cout << "------------------------------------------------------------------------" << std::endl;
 
