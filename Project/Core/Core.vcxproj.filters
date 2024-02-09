@@ -34,6 +34,9 @@
     <ClInclude Include="LinkedList.h">
       <Filter>1.System\0.DataStruct</Filter>
     </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>1.System\0.DataStruct\Container</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="0.Global">
@@ -54,6 +57,9 @@
     <Filter Include="1.System\0.DataStruct">
       <UniqueIdentifier>{78702859-ad94-4300-ba1e-c65a23214414}</UniqueIdentifier>
     </Filter>
+    <Filter Include="1.System\0.DataStruct\Container">
+      <UniqueIdentifier>{0968e498-3058-42e0-99dd-b61975ab756e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -67,6 +73,9 @@
     </ClCompile>
     <ClCompile Include="LinkedList.cpp">
       <Filter>1.System\0.DataStruct</Filter>
+    </ClCompile>
+    <ClCompile Include="List.cpp">
+      <Filter>1.System\0.DataStruct\Container</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

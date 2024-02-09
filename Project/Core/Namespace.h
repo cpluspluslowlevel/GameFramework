@@ -4,12 +4,15 @@
 namespace Framework::Core
 {
 
-    namespace Module
-    {
-    }
+    namespace Module {}
 
     namespace DataStruct
     {
+
+        namespace Container {}
+
+        namespace LinkedList {}
+
     }
 
 }

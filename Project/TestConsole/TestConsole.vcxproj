@@ -175,12 +175,14 @@
     <ClInclude Include="CommonConstant.h" />
     <ClInclude Include="CommonStruct.h" />
     <ClInclude Include="LinkedListTest.h" />
+    <ClInclude Include="ListTest.h" />
     <ClInclude Include="Namespace.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="TestConsole.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LInkedListTest.cpp" />
+    <ClCompile Include="ListTest.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
