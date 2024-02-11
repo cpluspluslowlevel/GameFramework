@@ -64,28 +64,28 @@ namespace Framework::TestConsole::DataStruct::Container
 
         //생성
         List<int> constructor0{};
-        List<int> constructor1{};
+        List<int> constructor1{ 40, 50, 60 };
         constructor0.InsertLast(10);
         constructor0.InsertLast(20);
         constructor0.InsertLast(30);
-        constructor1.InsertLast(40);
-        constructor1.InsertLast(50);
-        constructor1.InsertLast(60);
 
         List<int> constructor2{ constructor0 };
         List<int> constructor3{ std::move(constructor1) };
 
         std::cout << "Constructor test" << std::endl;
-        std::cout << "constructor0(Default, 10->20->30): "              << constructor0 << std::endl;
-        std::cout << "constructor1(Default, Moved to constructor3): "   << constructor1 << std::endl;
-        std::cout << "constructor2(Copy 0, 10->20->30): "               << constructor2 << std::endl;
-        std::cout << "constructor3(Move 1, 40->50->60): "               << constructor3 << std::endl;
+        std::cout << "constructor0(Default, 10->20->30): "      << constructor0 << std::endl;
+        std::cout << "constructor1(Init-List, 40->50->60): "    << constructor1 << std::endl;
+        std::cout << "constructor2(Copy 0, 10->20->30): "       << constructor2 << std::endl;
+        std::cout << "constructor3(Move 1, 40->50->60): "       << constructor3 << std::endl;
 
+        std::cout << std::endl;
 
-        constructor0.InsertLast(70);
-        constructor0.InsertLast(80);
-        std::cout << "constructor0(Modify, 10->20->30->70->80): " << constructor0 << std::endl;
-        std::cout << "constructor2(Copy before modify, 10->20->30): " << constructor2 << std::endl;
+        constructor0.InsertLast({ 70, 80 });
+        constructor1.InsertLast({ 90, 100 });
+        std::cout << "constructor0(Modify, 70->80): "       << constructor0 << std::endl;
+        std::cout << "constructor1(Modify, 90->100): "      << constructor1 << std::endl;
+        std::cout << "constructor2(Copy 0 before modify): " << constructor2 << std::endl;
+        std::cout << "constructor3(Move 1 before modify): " << constructor3 << std::endl;
         std::cout << "------------------------------------------------------------------------" << std::endl;
 
         //대입
@@ -120,10 +120,16 @@ namespace Framework::TestConsole::DataStruct::Container
         insertFirst.InsertFirst(20);
         insertFirst.InsertFirst(30);
 
+        List<int> insertFirstInitializerList{};
+        insertFirstInitializerList.InsertFirst({ 10,20,30 });
+
         List<int> insertLast{};
         insertLast.InsertLast(10);
         insertLast.InsertLast(20);
         insertLast.InsertLast(30);
+
+        List<int> insertLastInitializerList{};
+        insertLastInitializerList.InsertLast({ 10,20,30 });
 
         List<int> insertBidirection{};
         insertBidirection.InsertFirst(10);
@@ -132,10 +138,21 @@ namespace Framework::TestConsole::DataStruct::Container
         insertBidirection.InsertLast(40);
         insertBidirection.InsertFirst(50);
 
+        List<int> insertBidirectionInitializerList{};
+        insertBidirectionInitializerList.InsertFirst({ 50, 40 });
+        insertBidirectionInitializerList.InsertLast({ 60, 70 });
+        insertBidirectionInitializerList.InsertFirst({ 30, 20 });
+        insertBidirectionInitializerList.InsertLast({ 80, 90 });
+        insertBidirectionInitializerList.InsertFirst({ 10 });
+        insertBidirectionInitializerList.InsertLast({ 100 });
+
         std::cout << "Insert test" << std::endl;
-        std::cout << "insertFirst(10->20->30): "                << insertFirst << std::endl;
-        std::cout << "insertLast(10->20->30): "                 << insertLast << std::endl;
-        std::cout << "insertBidirection(10->20->30->40->50): "  << insertBidirection << std::endl;
+        std::cout << "insertFirst(10->20->30): "                            << insertFirst << std::endl;
+        std::cout << "insertFirstInitializerList(10->20->30): "             << insertFirstInitializerList << std::endl;
+        std::cout << "insertLast(10->20->30): "                             << insertLast << std::endl;
+        std::cout << "insertLastInitializerList(10->20->30): "              << insertLastInitializerList << std::endl;
+        std::cout << "insertBidirection(10->...->50): "                     << insertBidirection << std::endl;
+        std::cout << "insertBidirectionInitializerList(10, ..., 100): "     << insertBidirectionInitializerList << std::endl;
         std::cout << "------------------------------------------------------------------------" << std::endl;
 
 

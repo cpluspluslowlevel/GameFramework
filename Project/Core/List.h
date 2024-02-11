@@ -15,6 +15,35 @@ namespace Framework::Core::DataStruct::Container
         using NodeType      = LinkedList::DoubleLinkedListNode<ElementType>;
 
         List() : m_head{ nullptr }, m_tail{ nullptr } {}
+        List(const std::initializer_list<int>& list) : m_head{ nullptr }, m_tail{ nullptr }
+        {
+
+            if (list.size() != 0)
+            {
+
+                auto iter{ list.begin() };
+
+                //첫번째 요소는 따로 추가합니다.
+                m_head = m_tail = new NodeType{ *iter };
+                ++iter;
+
+                //나머지 요소를 추가합니다.
+                while (iter != list.end())
+                {
+
+                    m_tail->next = new NodeType{ *iter };
+                    m_tail->next->prev = m_tail;
+                    m_tail = m_tail->next;
+
+                    iter = ++iter;
+
+                }
+
+            }
+
+            
+
+        }
         List(const List& lvalue) : m_head{ nullptr }, m_tail{ nullptr }
         {
 
@@ -117,8 +146,33 @@ namespace Framework::Core::DataStruct::Container
             else
             {
 
-                m_head->LinkPrev(new NodeType{ value });
+                m_head->prev = new NodeType{ value };
+                m_head->prev->next = m_head;
                 m_head = m_head->prev;
+
+            }
+
+        }
+
+        void InsertFirst(const std::initializer_list<ElementType>& list)
+        {
+
+            auto iter{ list.begin() };
+
+            if (IsEmpty())
+            {
+                m_head = m_tail = new NodeType{ *iter };
+                ++iter;
+            }
+
+            while (iter != list.end())
+            {
+
+                m_head->prev = new NodeType{ *iter };
+                m_head->prev->next = m_head;
+                m_head = m_head->prev;
+
+                ++iter;
 
             }
 
@@ -134,11 +188,36 @@ namespace Framework::Core::DataStruct::Container
             else
             {
 
-                m_tail->LinkNext(new NodeType{ value });
+                m_tail->next = new NodeType{ value };
+                m_tail->next->prev = m_head;
                 m_tail = m_tail->next;
 
             }
             
+        }
+
+        void InsertLast(const std::initializer_list<ElementType>& list)
+        {
+
+            auto iter{ list.begin() };
+
+            if (IsEmpty())
+            {
+                m_head = m_tail = new NodeType{ *iter };
+                ++iter;
+            }
+
+            while (iter != list.end())
+            {
+
+                m_tail->next = new NodeType{ *iter };
+                m_tail->next->prev = m_head;
+                m_tail = m_tail->next;
+
+                ++iter;
+
+            }
+
         }
 
 
@@ -157,8 +236,8 @@ namespace Framework::Core::DataStruct::Container
                 }
                 else
                 {
-                    m_head = m_head->next;
-                    m_head->prev = nullptr;
+                    m_head          = m_head->next;
+                    m_head->prev    = nullptr;
                 }
 
                 delete headTemp;
@@ -182,8 +261,8 @@ namespace Framework::Core::DataStruct::Container
                 }
                 else
                 {
-                    m_tail = m_tail->prev;
-                    m_tail->next = nullptr;
+                    m_tail          = m_tail->prev;
+                    m_tail->next    = nullptr;
                 }
                 
                 delete tailTemp;
