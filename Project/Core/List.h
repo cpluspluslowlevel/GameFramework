@@ -147,9 +147,22 @@ namespace Framework::Core::DataStruct::Container
 
             if (!IsEmpty())
             {
+
                 auto headTemp{ m_head };
-                m_head = m_head->next;
+
+                //원소가 하나만 있을 때 예외 처리합니다.
+                if (m_head == m_tail)       //IsEmpty()가 false인 상황에서 둘이 nullptr일리는 없습니다.
+                {
+                    m_head = m_tail = nullptr;
+                }
+                else
+                {
+                    m_head = m_head->next;
+                    m_head->prev = nullptr;
+                }
+
                 delete headTemp;
+
             }
             
         }
@@ -159,9 +172,22 @@ namespace Framework::Core::DataStruct::Container
 
             if (!IsEmpty())
             {
+
                 auto tailTemp{ m_tail };
-                m_tail = m_tail->prev;
+
+                //원소가 하나만 있을 때 예외 처리합니다.
+                if (m_head == m_tail)       //IsEmpty()가 false인 상황에서 둘이 nullptr일리는 없습니다.
+                {
+                    m_head = m_tail = nullptr;
+                }
+                else
+                {
+                    m_tail = m_tail->prev;
+                    m_tail->next = nullptr;
+                }
+                
                 delete tailTemp;
+
             }
 
         }
