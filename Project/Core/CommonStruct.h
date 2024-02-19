@@ -4,6 +4,13 @@
 namespace Framework::Core
 {
 
+    template<typename First, typename Second>
+    struct PAIR
+    {
+        First   first;
+        Second  second;
+    };
+
 }
 
 #endif

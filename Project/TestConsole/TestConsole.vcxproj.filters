@@ -21,6 +21,7 @@
     </ClInclude>
     <ClInclude Include="LinkedListTest.h" />
     <ClInclude Include="ListTest.h" />
+    <ClInclude Include="HashTableTest.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="0.Global">
@@ -37,5 +38,6 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="LInkedListTest.cpp" />
     <ClCompile Include="ListTest.cpp" />
+    <ClCompile Include="HashTableTest.cpp" />
   </ItemGroup>
 </Project>

@@ -4,6 +4,10 @@
 namespace Framework::Core
 {
 
+
+    constexpr UInt32 DATASTRUCT_HASHTABLE_CONTAINER_CAPACITY = 32;
+
+
 }
 
 #endif

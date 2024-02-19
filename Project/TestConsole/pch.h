@@ -33,6 +33,10 @@
 #include <Windows.h>
 
 
+
+//내부 헤더
+#include "../Core/Core.h"
+
 //프로젝트 헤더
 #include "Namespace.h"
 #include "Common.h"

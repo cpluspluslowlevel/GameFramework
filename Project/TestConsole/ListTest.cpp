@@ -199,6 +199,14 @@ namespace Framework::TestConsole::DataStruct::Container
         PrintList("Search(40): ", *search.Search(40));
         PrintList("Search(50): ", *search.Search(50));
 
+        std::cout << std::endl;
+
+        PrintList("Functional search(10): ", *search.Search([](const int& nodeValue){ return nodeValue == 10; }));
+        PrintList("Functional search(20): ", *search.Search([](const int& nodeValue){ return nodeValue == 20; }));
+        PrintList("Functional search(30): ", *search.Search([](const int& nodeValue){ return nodeValue == 30; }));
+        PrintList("Functional search(40): ", *search.Search([](const int& nodeValue){ return nodeValue == 40; }));
+        PrintList("Functional search(50): ", *search.Search([](const int& nodeValue){ return nodeValue == 50; }));
+
         return 0;
 
     }

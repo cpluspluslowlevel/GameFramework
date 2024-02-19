@@ -11,15 +11,15 @@
 
 #ifdef _WIN64
     #ifdef _DEBUG
-        #pragma comment("ProjectTemplate_x64_Debug.lib")
+        #pragma comment(lib, "ProjectTemplate_x64_Debug.lib")
     #else
-        #pragma comment("ProjectTemplate_x64_Release.lib")
+        #pragma comment(lib, "ProjectTemplate_x64_Release.lib")
     #endif
 #else
     #ifdef _DEBUG
-        #pragma comment("ProjectTemplate_Win32_Debug.lib")
+        #pragma comment(lib, "ProjectTemplate_Win32_Debug.lib")
     #else
-        #pragma comment("ProjectTemplate_Win32_Release.lib")
+        #pragma comment(lib, "ProjectTemplate_Win32_Release.lib")
     #endif
 #endif
 

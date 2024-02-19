@@ -60,7 +60,7 @@ namespace Framework::TestConsole::DataStruct::LinkedList
 
         using namespace Framework::Core::DataStruct::LinkedList;
 
-        //노드의 생성자가 정상 작동 하는가
+        //생성
         SingleLinkedListNode<int> constructorTest0{};
         SingleLinkedListNode<int> constructorTest1{ 10 };
 
@@ -71,9 +71,6 @@ namespace Framework::TestConsole::DataStruct::LinkedList
 
 
         //입력
-        //중간 노드를 추가할 수 있는가
-        //가장 앞에 노드를 추가할 수 있는가
-        //가장 뒤에 노드를 추가할 수 있는가
         auto insertHead = new SingleLinkedListNode<int>{ 1000 };
         insertHead->LinkNext(new SingleLinkedListNode<int>{ 2000 });
         insertHead->next->LinkNext(new SingleLinkedListNode<int>{ 3000 });
@@ -95,9 +92,6 @@ namespace Framework::TestConsole::DataStruct::LinkedList
 
 
         //삭제
-        //중간 노드를 삭제 할 수 있는가
-        //가장 앞에 노드를 삭제 할 수 있는가
-        //가장 뒤에 노드를 삭제 할 수 있는가
         auto deleteHead = new SingleLinkedListNode<int>{ 1000 };
         deleteHead->LinkNext(new SingleLinkedListNode<int>{ 2000 });
         deleteHead->next->LinkNext(new SingleLinkedListNode<int>{ 3000 });
@@ -122,20 +116,26 @@ namespace Framework::TestConsole::DataStruct::LinkedList
 
 
         //탐색
-        //특정 값을 갖는 노드를 찾을 수 있는가
-        auto findHead = new SingleLinkedListNode<int>{ 1000 };
-        LinkLastNode(findHead, new SingleLinkedListNode<int>{ 2000 });
-        LinkLastNode(findHead, new SingleLinkedListNode<int>{ 3000 });
-        LinkLastNode(findHead, new SingleLinkedListNode<int>{ 4000 });
-        LinkLastNode(findHead, new SingleLinkedListNode<int>{ 5000 });
+        auto searchHead{ new SingleLinkedListNode<int>{ 1000 } };
+        LinkLastNode(searchHead, new SingleLinkedListNode<int>{ 2000 });
+        LinkLastNode(searchHead, new SingleLinkedListNode<int>{ 3000 });
+        LinkLastNode(searchHead, new SingleLinkedListNode<int>{ 4000 });
+        LinkLastNode(searchHead, new SingleLinkedListNode<int>{ 5000 });
 
         std::cout << "Searching test" << std::endl;
 
-        PrintList("Base: ", *findHead);
-        PrintList("Search(3000): ", *SearchNode(findHead, 3000));
-        PrintList("Search(1000): ", *SearchNode(findHead, 1000));
-        PrintList("Search(5000): ", *SearchNode(findHead, 5000));
-        
+        PrintList("Base: ", *searchHead);
+        PrintList("Search(3000): ", *SearchNode(searchHead, 3000));
+        PrintList("Search(1000): ", *SearchNode(searchHead, 1000));
+        PrintList("Search(5000): ", *SearchNode(searchHead, 5000));
+
+        std::cout << std::endl;
+
+        PrintList("Base: ", *searchHead);
+        PrintList("Functional search(3000): ", *SearchNode<int>(searchHead, [](const int& nodeValue) { return nodeValue == 3000; }));
+        PrintList("Functional search(1000): ", *SearchNode<int>(searchHead, [](const int& nodeValue) { return nodeValue == 1000; }));
+        PrintList("Functional search(5000): ", *SearchNode<int>(searchHead, [](const int& nodeValue) { return nodeValue == 5000; }));
+
         std::cout << "------------------------------------------------------------------------" << std::endl;
 
         return 0;
@@ -207,7 +207,7 @@ namespace Framework::TestConsole::DataStruct::LinkedList
 
         using namespace Framework::Core::DataStruct::LinkedList;
 
-        //노드의 생성자가 정상 작동 하는가
+        //생성
         DoubleLinkedListNode<int> constructorTest0{};
         DoubleLinkedListNode<int> constructorTest1{ 10 };
         DoubleLinkedListNode<int> constructorTest2{ 20 };
@@ -220,9 +220,6 @@ namespace Framework::TestConsole::DataStruct::LinkedList
 
 
         //입력
-        //중간 노드를 추가할 수 있는가
-        //가장 앞에 노드를 추가할 수 있는가
-        //가장 뒤에 노드를 추가할 수 있는가
         auto insertCenter = new DoubleLinkedListNode<int>{ 4000 };
 
         std::cout << "Insert test" << std::endl;
@@ -245,9 +242,6 @@ namespace Framework::TestConsole::DataStruct::LinkedList
 
 
         //삭제
-        //중간 노드를 삭제 할 수 있는가
-        //가장 앞에 노드를 삭제 할 수 있는가
-        //가장 뒤에 노드를 삭제 할 수 있는가
         auto deleteHead = new DoubleLinkedListNode<int>{ 1000 };
         LinkLastNode(deleteHead, new DoubleLinkedListNode<int>{ 2000 });
         LinkLastNode(deleteHead, new DoubleLinkedListNode<int>{ 3000 });
@@ -280,26 +274,35 @@ namespace Framework::TestConsole::DataStruct::LinkedList
 
 
         //탐색
-        //특정 값을 갖는 노드를 찾을 수 있는가
-        auto findHead = new DoubleLinkedListNode<int>{ 1000 };
-        LinkLastNode(findHead, new DoubleLinkedListNode<int>{ 2000 });
-        LinkLastNode(findHead, new DoubleLinkedListNode<int>{ 3000 });
-        LinkLastNode(findHead, new DoubleLinkedListNode<int>{ 4000 });
-        LinkLastNode(findHead, new DoubleLinkedListNode<int>{ 5000 });
-        LinkLastNode(findHead, new DoubleLinkedListNode<int>{ 6000 });
-        LinkLastNode(findHead, new DoubleLinkedListNode<int>{ 7000 });
-        auto findCenter{ findHead->next->next->next };
+        auto searchHead = new DoubleLinkedListNode<int>{ 1000 };
+        LinkLastNode(searchHead, new DoubleLinkedListNode<int>{ 2000 });
+        LinkLastNode(searchHead, new DoubleLinkedListNode<int>{ 3000 });
+        LinkLastNode(searchHead, new DoubleLinkedListNode<int>{ 4000 });
+        LinkLastNode(searchHead, new DoubleLinkedListNode<int>{ 5000 });
+        LinkLastNode(searchHead, new DoubleLinkedListNode<int>{ 6000 });
+        LinkLastNode(searchHead, new DoubleLinkedListNode<int>{ 7000 });
+        auto searchCenter{ searchHead->next->next->next };
 
         std::cout << "Searching test" << std::endl;
 
-        PrintList("Base: ", *findCenter);
-        PrintList("Prev Searching(2000): ",     *SearchNodePrev(findCenter, 2000));
-        PrintList("Prev Searching(1000): ",     *SearchNodePrev(findCenter, 1000));
-        PrintList("Prev Searching(4000): ",     *SearchNodePrev(findCenter, 4000));
-        PrintList("Last Searching(6000): ",     *SearchNodeNext(findCenter, 6000));
-        PrintList("Last Searching(7000): ",     *SearchNodeNext(findCenter, 7000));
-        PrintList("Last Searching(4000): ",     *SearchNodeNext(findCenter, 4000));
+        PrintList("Base: ", *searchCenter);
+        PrintList("Prev Searching(2000): ",     *SearchNodePrev(searchCenter, 2000));
+        PrintList("Prev Searching(1000): ",     *SearchNodePrev(searchCenter, 1000));
+        PrintList("Prev Searching(4000): ",     *SearchNodePrev(searchCenter, 4000));
+        PrintList("Last Searching(6000): ",     *SearchNodeNext(searchCenter, 6000));
+        PrintList("Last Searching(7000): ",     *SearchNodeNext(searchCenter, 7000));
+        PrintList("Last Searching(4000): ",     *SearchNodeNext(searchCenter, 4000));
         
+        std::cout << std::endl;
+
+        PrintList("Base: ", *searchCenter);
+        PrintList("Functional prev Searching(2000): ",     *SearchNodePrev<int>(searchCenter, [](const int& nodeValue){ return nodeValue == 2000; }));
+        PrintList("Functional prev Searching(1000): ",     *SearchNodePrev<int>(searchCenter, [](const int& nodeValue){ return nodeValue == 1000; }));
+        PrintList("Functional prev Searching(4000): ",     *SearchNodePrev<int>(searchCenter, [](const int& nodeValue){ return nodeValue == 4000; }));
+        PrintList("Functional last Searching(6000): ",     *SearchNodeNext<int>(searchCenter, [](const int& nodeValue){ return nodeValue == 6000; }));
+        PrintList("Functional last Searching(7000): ",     *SearchNodeNext<int>(searchCenter, [](const int& nodeValue){ return nodeValue == 7000; }));
+        PrintList("Functional last Searching(4000): ",     *SearchNodeNext<int>(searchCenter, [](const int& nodeValue){ return nodeValue == 4000; }));
+
         std::cout << "------------------------------------------------------------------------" << std::endl;
 
         return 0;

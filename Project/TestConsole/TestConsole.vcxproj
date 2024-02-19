@@ -75,28 +75,28 @@
     <IntDir>$(SolutionDir)Intermedia\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_$(Platform)_$(Configuration)</TargetName>
     <IncludePath>$(SolutionDir)ThirdParty\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(SolutionDir)Build\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)Build\</OutDir>
     <IntDir>$(SolutionDir)Intermedia\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_$(Platform)_$(Configuration)</TargetName>
     <IncludePath>$(SolutionDir)ThirdParty\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(SolutionDir)Build\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Build\</OutDir>
     <IntDir>$(SolutionDir)Intermedia\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_$(Platform)_$(Configuration)</TargetName>
     <IncludePath>$(SolutionDir)ThirdParty\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(SolutionDir)Build\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Build\</OutDir>
     <IntDir>$(SolutionDir)Intermedia\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_$(Platform)_$(Configuration)</TargetName>
     <IncludePath>$(SolutionDir)ThirdParty\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(SolutionDir)Build\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -174,6 +174,7 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="CommonConstant.h" />
     <ClInclude Include="CommonStruct.h" />
+    <ClInclude Include="HashTableTest.h" />
     <ClInclude Include="LinkedListTest.h" />
     <ClInclude Include="ListTest.h" />
     <ClInclude Include="Namespace.h" />
@@ -181,6 +182,7 @@
     <ClInclude Include="TestConsole.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="HashTableTest.cpp" />
     <ClCompile Include="LInkedListTest.cpp" />
     <ClCompile Include="ListTest.cpp" />
     <ClCompile Include="Main.cpp" />

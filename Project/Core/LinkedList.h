@@ -9,11 +9,6 @@ namespace Framework::Core::DataStruct::LinkedList
     class SingleLinkedListNode
     {
     public:
-
-        
-
-
-    public:
         SingleLinkedListNode() = default;
         SingleLinkedListNode(const Type& v) : value{ v }, next{ nullptr } {}
         SingleLinkedListNode(const SingleLinkedListNode&) = delete;
@@ -119,7 +114,70 @@ namespace Framework::Core::DataStruct::LinkedList
 
     }
 
+    template<typename Type>
+    const SingleLinkedListNode<Type>* SearchNode(const SingleLinkedListNode<Type>* node, const Type& value)
+    {
 
+        auto loopNode{ node };
+        while (loopNode != nullptr)
+        {
+
+            if (loopNode->value == value)
+            {
+                return loopNode;
+            }
+
+            loopNode = loopNode->next;
+
+        }
+
+        return nullptr;
+
+    }
+
+    template<typename Type>
+    SingleLinkedListNode<Type>* SearchNode(SingleLinkedListNode<Type>* node, std::function<bool(const Type&)> function)
+    {
+
+        auto loopNode{ node };
+        while (loopNode != nullptr)
+        {
+
+            if (function(loopNode->value))
+            {
+                return loopNode;
+            }
+
+            loopNode = loopNode->next;
+
+        }
+
+        return nullptr;
+
+    }
+
+    template<typename Type>
+    const SingleLinkedListNode<Type>* SearchNode(const SingleLinkedListNode<Type>* node, std::function<bool(const Type&)> function)
+    {
+
+        auto loopNode{ node };
+        while (loopNode != nullptr)
+        {
+
+            if (function(loopNode->value))
+            {
+                return loopNode;
+            }
+
+            loopNode = loopNode->next;
+
+        }
+
+        return nullptr;
+
+    }
+
+    
 
 
     //Double linked list
@@ -166,6 +224,23 @@ namespace Framework::Core::DataStruct::LinkedList
                 next->prev = newNode;
             }
             next = newNode;
+
+        }
+
+        void UnlinkSelf()
+        {
+
+            if (prev != nullptr)
+            {
+                prev->next = next;
+            }
+
+            if (next != nullptr)
+            {
+                next->prev = prev;
+            }
+
+            prev = next = nullptr;
 
         }
 
@@ -386,6 +461,48 @@ namespace Framework::Core::DataStruct::LinkedList
     }
 
     template<typename Type>
+    DoubleLinkedListNode<Type>* SearchNodePrev(DoubleLinkedListNode<Type>* node, std::function<bool(const Type&)> function)
+    {
+
+        auto loopNode{ node };
+        while (loopNode != nullptr)
+        {
+
+            if (function(loopNode->value))
+            {
+                return loopNode;
+            }
+
+            loopNode = loopNode->prev;
+
+        }
+
+        return nullptr;
+
+    }
+
+    template<typename Type>
+    const DoubleLinkedListNode<Type>* SearchNodePrev(const DoubleLinkedListNode<Type>* node, std::function<bool(const Type&)> function)
+    {
+
+        auto loopNode{ node };
+        while (loopNode != nullptr)
+        {
+
+            if (function(loopNode->value))
+            {
+                return loopNode;
+            }
+
+            loopNode = loopNode->prev;
+
+        }
+
+        return nullptr;
+
+    }
+
+    template<typename Type>
     DoubleLinkedListNode<Type>* SearchNodeNext(DoubleLinkedListNode<Type>* node, const Type& value)
     {
 
@@ -415,6 +532,49 @@ namespace Framework::Core::DataStruct::LinkedList
         {
 
             if (loopNode->value == value)
+            {
+                return loopNode;
+            }
+
+            loopNode = loopNode->next;
+
+        }
+
+        return nullptr;
+
+    }
+
+
+    template<typename Type>
+    DoubleLinkedListNode<Type>* SearchNodeNext(DoubleLinkedListNode<Type>* node, std::function<bool(const Type&)> function)
+    {
+
+        auto loopNode{ node };
+        while (loopNode != nullptr)
+        {
+
+            if (function(loopNode->value))
+            {
+                return loopNode;
+            }
+
+            loopNode = loopNode->next;
+
+        }
+
+        return nullptr;
+
+    }
+
+    template<typename Type>
+    const DoubleLinkedListNode<Type>* SearchNodeNext(const DoubleLinkedListNode<Type>* node, std::function<bool(const Type&)> function)
+    {
+
+        auto loopNode{ node };
+        while (loopNode != nullptr)
+        {
+
+            if (function(loopNode->value))
             {
                 return loopNode;
             }
