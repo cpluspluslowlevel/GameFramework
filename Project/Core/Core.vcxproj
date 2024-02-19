@@ -72,31 +72,31 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)Build\</OutDir>
-    <IntDir>$(SolutionDir)Intermedia\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)Intermedia\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_$(Platform)_$(Configuration)</TargetName>
     <IncludePath>$(SolutionDir)ThirdParty\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(SolutionDir)Build\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)Build\</OutDir>
-    <IntDir>$(SolutionDir)Intermedia\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)Intermedia\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_$(Platform)_$(Configuration)</TargetName>
     <IncludePath>$(SolutionDir)ThirdParty\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(SolutionDir)Build\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Build\</OutDir>
-    <IntDir>$(SolutionDir)Intermedia\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)Intermedia\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_$(Platform)_$(Configuration)</TargetName>
     <IncludePath>$(SolutionDir)ThirdParty\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(SolutionDir)Build\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Build\</OutDir>
-    <IntDir>$(SolutionDir)Intermedia\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)Intermedia\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_$(Platform)_$(Configuration)</TargetName>
     <IncludePath>$(SolutionDir)ThirdParty\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)ThirdParty\Binary;$(SolutionDir)Build\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -174,12 +174,21 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="CommonConstant.h" />
     <ClInclude Include="CommonStruct.h" />
+    <ClInclude Include="HashTable.h" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="List.h" />
+    <ClInclude Include="Module.h" />
+    <ClInclude Include="ModuleRequireFunction.h" />
     <ClInclude Include="Namespace.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="Type.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="HashTable.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="List.cpp" />
+    <ClCompile Include="Module.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

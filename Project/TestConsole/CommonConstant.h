@@ -1,0 +1,9 @@
+#ifndef _FRAMEWORK_TESTCONSOLE_COMMONCONSTANT_H_
+#define _FRAMEWORK_TESTCONSOLE_COMMONCONSTANT_H_
+
+namespace Framework::TestConsole
+{
+
+}
+
+#endif

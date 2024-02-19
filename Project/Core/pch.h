@@ -35,6 +35,7 @@
 
 //프로젝트 헤더
 #include "Namespace.h"
+#include "Type.h"
 #include "Common.h"
 
 #pragma comment(lib, "winmm.lib")
