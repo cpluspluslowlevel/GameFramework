@@ -4,4 +4,10 @@
 namespace Framework::Core::Module
 {
 
+    void ModuleContainer::Insert(std::string_view name, Module* module)
+    {
+
+
+    }
+
 }

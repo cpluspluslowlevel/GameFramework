@@ -28,13 +28,13 @@
     <ClInclude Include="Module.h">
       <Filter>1.System\2.Module</Filter>
     </ClInclude>
-    <ClInclude Include="HashTable.h">
-      <Filter>1.System\0.DataStruct</Filter>
-    </ClInclude>
     <ClInclude Include="LinkedList.h">
       <Filter>1.System\0.DataStruct</Filter>
     </ClInclude>
     <ClInclude Include="List.h">
+      <Filter>1.System\0.DataStruct\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="HashTable.h">
       <Filter>1.System\0.DataStruct\Container</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,13 +68,13 @@
     <ClCompile Include="Module.cpp">
       <Filter>1.System\2.Module</Filter>
     </ClCompile>
-    <ClCompile Include="HashTable.cpp">
-      <Filter>1.System\0.DataStruct</Filter>
-    </ClCompile>
     <ClCompile Include="LinkedList.cpp">
       <Filter>1.System\0.DataStruct</Filter>
     </ClCompile>
     <ClCompile Include="List.cpp">
+      <Filter>1.System\0.DataStruct\Container</Filter>
+    </ClCompile>
+    <ClCompile Include="HashTable.cpp">
       <Filter>1.System\0.DataStruct\Container</Filter>
     </ClCompile>
   </ItemGroup>

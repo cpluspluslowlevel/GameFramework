@@ -157,6 +157,10 @@ namespace Framework::Core::DataStruct::Container
 
 
     FRAMEWORK_CORE_DLL_FUNCTION UInt32 HashFunction(const UInt32& key);
+    FRAMEWORK_CORE_DLL_FUNCTION UInt32 HashFunctionString(const Multibyte*& key);
+    FRAMEWORK_CORE_DLL_FUNCTION UInt32 HashFunctionString(const Unicode*& key);
+    FRAMEWORK_CORE_DLL_FUNCTION UInt32 HashFunctionString(const std::string& key);
+    FRAMEWORK_CORE_DLL_FUNCTION UInt32 HashFunctionString(const std::wstring& key);
 
 }
 

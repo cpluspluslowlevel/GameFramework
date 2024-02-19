@@ -13,8 +13,6 @@ namespace Framework::Core
 
         namespace LinkedList {}
 
-        namespace HashTable {}
-
     }
 
 }

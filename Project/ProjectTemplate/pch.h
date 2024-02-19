@@ -32,6 +32,7 @@
 //외부 헤더
 #include <Windows.h>
 
+//내부 헤더
 
 //프로젝트 헤더
 #include "Namespace.h"
