@@ -37,6 +37,9 @@
     <ClInclude Include="HashTable.h">
       <Filter>1.System\0.DataStruct\Container</Filter>
     </ClInclude>
+    <ClInclude Include="Framework.h">
+      <Filter>2.Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="0.Global">
@@ -60,6 +63,9 @@
     <Filter Include="1.System\0.DataStruct\Container">
       <UniqueIdentifier>{0968e498-3058-42e0-99dd-b61975ab756e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="2.Framework">
+      <UniqueIdentifier>{bd4c3c5e-b10f-4e91-8b8f-45b65a6623b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -76,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="HashTable.cpp">
       <Filter>1.System\0.DataStruct\Container</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework.cpp">
+      <Filter>2.Framework</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

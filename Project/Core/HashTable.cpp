@@ -4,12 +4,47 @@
 namespace Framework::Core::DataStruct::Container
 {
 
-    UInt32 HashFunction(const UInt32& key)
+    UInt32 HashFunctionInt8(const Int8& key)
+    {
+        return HashFunctionUInt64(abs(key));
+    }
+
+    UInt32 HashFunctionInt16(const Int16& key)
+    {
+        return HashFunctionUInt64(abs(key));
+    }
+
+    UInt32 HashFunctionInt32(const Int32& key)
+    {
+        return HashFunctionUInt64(abs(key));
+    }
+
+    UInt32 HashFunctionInt64(const Int64& key)
+    {
+        return HashFunctionUInt64(abs(key));
+    }
+
+    UInt32 HashFunctionUInt8(const UInt8& key)
+    {
+        return HashFunctionUInt64(key);
+    }
+
+    UInt32 HashFunctionUInt16(const UInt16& key)
+    {
+        return HashFunctionUInt64(key);
+    }
+
+    UInt32 HashFunctionUInt32(const UInt32& key)
+    {
+        return HashFunctionUInt64(key);
+    }
+
+    UInt32 HashFunctionUInt64(const UInt64& key)
     {
         return key % DATASTRUCT_HASHTABLE_CONTAINER_CAPACITY;
     }
 
-    UInt32 HashFunctionString(const Multibyte*& key)
+    UInt32 HashFunctionMultibyte(const Multibyte*const& key)
     {
 
         static UInt64 MULTIPLIER{ 31 };
@@ -29,7 +64,7 @@ namespace Framework::Core::DataStruct::Container
         
     }
 
-    UInt32 HashFunctionString(const Unicode*& key)
+    UInt32 HashFunctionUnicode(const Unicode*const& key)
     {
 
         static UInt64 MULTIPLIER{ 31 };
@@ -51,12 +86,12 @@ namespace Framework::Core::DataStruct::Container
 
     UInt32 HashFunctionString(const std::string& key)
     {
-        return HashFunctionString(key.c_str());
+        return HashFunctionMultibyte(key.c_str());
     }
 
     UInt32 HashFunctionString(const std::wstring& key)
     {
-        return HashFunctionString(key.c_str());
+        return HashFunctionUnicode(key.c_str());
     }
 
 }

@@ -45,6 +45,8 @@
 
 #pragma comment(lib, "winmm.lib")
 
+#pragma warning(disable : 4251)
+
 namespace Framework::Core
 {
 

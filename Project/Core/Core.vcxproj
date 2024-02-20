@@ -174,6 +174,7 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="CommonConstant.h" />
     <ClInclude Include="CommonStruct.h" />
+    <ClInclude Include="Framework.h" />
     <ClInclude Include="HashTable.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="List.h" />
@@ -185,6 +186,7 @@
     <ClInclude Include="Type.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework.cpp" />
     <ClCompile Include="HashTable.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="List.cpp" />
