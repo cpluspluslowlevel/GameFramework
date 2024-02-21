@@ -50,6 +50,9 @@
 namespace Framework::Core
 {
 
+    extern HINSTANCE    instanceHandle;
+    extern HWND         gameWindowHandle;
+    
 }
 
 
