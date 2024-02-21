@@ -44,6 +44,18 @@ namespace Framework::Core
         };
 
     public:
+        FrameworkEvent() : m_head{}, m_tail{}                            //복사, 이동은 하지 않습니다.
+        {
+            m_head.prev = nullptr;
+            m_head.next = &m_tail;
+            m_tail.prev = &m_head;
+            m_tail.next = nullptr;
+        }
+        FrameworkEvent(const FrameworkEvent&) = delete;
+        FrameworkEvent(FrameworkEvent&&) noexcept = delete;
+        ~FrameworkEvent() noexcept = default;
+        FrameworkEvent& operator=(const FrameworkEvent&) = delete;
+        FrameworkEvent& operator=(FrameworkEvent&&) noexcept = delete;
 
 
         /// <summary>

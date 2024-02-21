@@ -50,7 +50,7 @@ namespace Framework::Core
         RegisterClassEx(&wc);
         
         gameWindowHandle = CreateWindowEx(NULL, TEXT("FrameworkWindow"), TEXT("Game"), WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 1280, 760, NULL, NULL, instanceHandle, nullptr );
-
+        ShowWindow(gameWindowHandle, SW_SHOWDEFAULT);
 
         SetWindowLongPtr(gameWindowHandle, GWLP_USERDATA, (LONG_PTR)this);
 
@@ -107,7 +107,16 @@ namespace Framework::Core
 
     LRESULT Framework::MessageProcessor(HWND windowHandle, UINT message, WPARAM wparameter, LPARAM lparameter)
     {
+
+        switch (message)
+        {
+        case WM_DESTROY:
+            PostQuitMessage(0);
+            break;
+        }
+
         return DefWindowProc(windowHandle, message, wparameter, lparameter);
+
     }
 
 }
