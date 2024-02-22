@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="Common.h">
+      <Filter>0.Global</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonConstant.h">
+      <Filter>0.Global</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonStruct.h">
+      <Filter>0.Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Namespace.h">
+      <Filter>0.Global</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>0.Global</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsDX12.h">
+      <Filter>99.Export</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="0.Global">
+      <UniqueIdentifier>{26f074b1-d9e3-4910-9cde-590e4c121b61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Export">
+      <UniqueIdentifier>{bed31e53-f916-4949-b51c-358bbd8f4522}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>0.Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Module.cpp" />
+  </ItemGroup>
+</Project>

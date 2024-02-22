@@ -66,7 +66,7 @@ namespace Framework::Core
         EventNode* Insert(std::function<FunctionType> funtion)
         {
             
-            NodeType* newNode{ funtion };
+            NodeType* newNode{ new NodeType{funtion} };
             newNode->prev = m_tail.prev;
             newNode->next = &m_tail;
 
@@ -85,6 +85,7 @@ namespace Framework::Core
             while (node != &m_tail)
             {
                 node->value(args...);
+                node = node->next;
             }
 
         }
@@ -97,6 +98,8 @@ namespace Framework::Core
     };
 
 
+    template class FRAMEWORK_CORE_DLL_CLASS FrameworkEvent<void()>;
+    template class FRAMEWORK_CORE_DLL_CLASS FrameworkEvent<void(float)>;
     class FRAMEWORK_CORE_DLL_CLASS Framework
     {
     public:
@@ -105,6 +108,7 @@ namespace Framework::Core
         {
         public:
             FrameworkEvent<void()>          SceneStartEvent;
+            FrameworkEvent<void()>          SceneEndEvent;
             FrameworkEvent<void(float)>     FrameUpdateEvent;
         };
 
@@ -117,7 +121,7 @@ namespace Framework::Core
         Framework& operator=(Framework&&) noexcept = delete;
 
 
-        bool Initialize(HINSTANCE handle);
+        bool Initialize(HINSTANCE instanceHandle);
 
         /// <summary>
         /// 모듈을 불러옵니다.

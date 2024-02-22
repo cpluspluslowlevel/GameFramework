@@ -1,0 +1,9 @@
+#ifndef _FRAMEWORK_GRAPHICSDX12_COMMONCONSTANT_H_
+#define _FRAMEWORK_GRAPHICSDX12_COMMONCONSTANT_H_
+
+namespace Framework::GraphicsDX12
+{
+
+}
+
+#endif

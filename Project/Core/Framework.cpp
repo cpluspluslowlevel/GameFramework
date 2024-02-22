@@ -29,10 +29,10 @@ namespace Framework::Core
 
     }
 
-    bool Framework::Initialize(HINSTANCE handle)
+    bool Framework::Initialize(HINSTANCE instanceHandle)
     {
 
-        instanceHandle = handle;
+        SetInstanceHandle(instanceHandle);
 
         WNDCLASSEX wc;
         wc.cbSize           = sizeof(wc);
@@ -49,10 +49,14 @@ namespace Framework::Core
         wc.style            = CS_VREDRAW | CS_HREDRAW;
         RegisterClassEx(&wc);
         
-        gameWindowHandle = CreateWindowEx(NULL, TEXT("FrameworkWindow"), TEXT("Game"), WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 1280, 760, NULL, NULL, instanceHandle, nullptr );
-        ShowWindow(gameWindowHandle, SW_SHOWDEFAULT);
+        HWND windowHandle = CreateWindowEx(NULL, TEXT("FrameworkWindow"), TEXT("Game"), WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 1280, 760, NULL, NULL, instanceHandle, nullptr );
+        ShowWindow(windowHandle, SW_SHOWDEFAULT);
 
-        SetWindowLongPtr(gameWindowHandle, GWLP_USERDATA, (LONG_PTR)this);
+        SetWindowLongPtr(windowHandle, GWLP_USERDATA, (LONG_PTR)this);
+
+        SetGameWindowHandle(windowHandle);
+
+        LoadModule(L"Game_x64_Debug.dll");
 
         return true;
 
@@ -70,9 +74,7 @@ namespace Framework::Core
         ModuleSetupFunction setupFunction{ (ModuleSetupFunction)GetProcAddress(moduleHandle, FRAMEWORK_CORE_MODULE_SETUP_FUNCTION_NAME_STRING) };
         if (setupFunction != nullptr)
         {
-
             setupFunction(this);
-
         }
 
         return true;
@@ -83,6 +85,9 @@ namespace Framework::Core
     {
 
         Event.SceneStartEvent.Call();
+
+        DWORD oldTick       = timeGetTime();
+        DWORD currentTick   = oldTick;
 
         MSG msg{};
         ZeroMemory(&msg, sizeof(msg));
@@ -97,11 +102,17 @@ namespace Framework::Core
             else
             {
 
-                Event.FrameUpdateEvent.Call(0.5f);
+                currentTick = timeGetTime();
+
+                Event.FrameUpdateEvent.Call((Float32)(currentTick - oldTick) * 0.001f);
+
+                oldTick = currentTick;
 
             }
 
         }
+
+        Event.SceneEndEvent.Call();
 
     }
 

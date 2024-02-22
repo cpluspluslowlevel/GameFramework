@@ -50,8 +50,11 @@
 namespace Framework::Core
 {
 
-    extern HINSTANCE    instanceHandle;
-    extern HWND         gameWindowHandle;
+    void SetInstanceHandle(HINSTANCE instanceHandle);
+    void SetGameWindowHandle(HWND windowHandle);
+
+    FRAMEWORK_CORE_DLL_FUNCTION HINSTANCE    GetInstanceHandle();
+    FRAMEWORK_CORE_DLL_FUNCTION HWND         GetGameWindowHandle();
     
 }
 

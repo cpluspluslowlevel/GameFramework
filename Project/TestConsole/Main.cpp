@@ -3,6 +3,11 @@
 #include "ListTest.h"
 #include "HashTableTest.h"
 
+void FrameUpdate(float f)
+{
+
+}
+
 int main()
 {
 
