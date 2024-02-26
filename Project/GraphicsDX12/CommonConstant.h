@@ -4,6 +4,10 @@
 namespace Framework::GraphicsDX12
 {
 
+    constexpr UInt32 OUTPUT_RTV_NUMBER{ 2 };
+
+    constexpr UInt32 RESOURCE_RTV_COMMONDESCRIPTORHEAP_CAPACITY{ 1024 };
+
 }
 
 #endif

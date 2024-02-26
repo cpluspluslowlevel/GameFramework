@@ -8,6 +8,10 @@ namespace Framework::GraphicsDX12
     {
     }
 
+    namespace Resource
+    {
+    }
+
 }
 
 #endif

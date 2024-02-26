@@ -20,6 +20,15 @@
       <Filter>99.Export</Filter>
     </ClInclude>
     <ClInclude Include="Module.h" />
+    <ClInclude Include="Device.h" />
+    <ClInclude Include="Output.h" />
+    <ClInclude Include="DescriptorHeap.h">
+      <Filter>2.Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Pipeline.h">
+      <Filter>1.Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="0.Global">
@@ -28,11 +37,26 @@
     <Filter Include="99.Export">
       <UniqueIdentifier>{bed31e53-f916-4949-b51c-358bbd8f4522}</UniqueIdentifier>
     </Filter>
+    <Filter Include="2.Resource">
+      <UniqueIdentifier>{8d26ce98-b7a3-4f95-abd7-fdbb7e1ffc07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="1.Pipeline">
+      <UniqueIdentifier>{d4a3db00-cbaf-494a-a06e-00955e27ae8f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>0.Global</Filter>
     </ClCompile>
     <ClCompile Include="Module.cpp" />
+    <ClCompile Include="Device.cpp" />
+    <ClCompile Include="Output.cpp" />
+    <ClCompile Include="DescriptorHeap.cpp">
+      <Filter>2.Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Pipeline.cpp">
+      <Filter>1.Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp" />
   </ItemGroup>
 </Project>

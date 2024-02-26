@@ -171,22 +171,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Command.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="CommonConstant.h" />
     <ClInclude Include="CommonStruct.h" />
+    <ClInclude Include="DescriptorHeap.h" />
+    <ClInclude Include="Device.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="Namespace.h" />
+    <ClInclude Include="Output.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="GraphicsDX12.h" />
+    <ClInclude Include="Pipeline.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Command.cpp" />
+    <ClCompile Include="DescriptorHeap.cpp" />
+    <ClCompile Include="Device.cpp" />
     <ClCompile Include="Module.cpp" />
+    <ClCompile Include="Output.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Pipeline.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

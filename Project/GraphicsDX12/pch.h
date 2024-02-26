@@ -31,6 +31,13 @@
 
 //외부 헤더
 #include <Windows.h>
+#include <d3d12.h>
+#include <dxgi.h>
+#include <dxgi1_2.h>
+#include <dxgi1_3.h>
+#include <dxgi1_4.h>
+#include <dxgi1_5.h>
+#include <dxgi1_6.h>
 
 //내부 헤더
 #include "../Core/Core.h"
@@ -40,6 +47,8 @@
 #include "Common.h"
 
 #pragma comment(lib, "winmm.lib")
+#pragma comment(lib, "d3d12.lib")
+#pragma comment(lib, "dxgi.lib")
 
 namespace Framework::GraphicsDX12
 {

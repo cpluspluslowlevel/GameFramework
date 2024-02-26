@@ -48,8 +48,13 @@ namespace Framework::Core
         wc.lpszMenuName     = NULL;
         wc.style            = CS_VREDRAW | CS_HREDRAW;
         RegisterClassEx(&wc);
+
+        RECT rect{ 0, 0, 1280, 760 };
+        AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, FALSE);
         
-        HWND windowHandle = CreateWindowEx(NULL, TEXT("FrameworkWindow"), TEXT("Game"), WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 1280, 760, NULL, NULL, instanceHandle, nullptr );
+        HWND windowHandle = CreateWindowEx(NULL, TEXT("FrameworkWindow"), TEXT("Game"), WS_OVERLAPPEDWINDOW,
+                                           CW_USEDEFAULT, CW_USEDEFAULT, rect.right - rect.left, rect.bottom - rect.top,
+                                           NULL, NULL, instanceHandle, nullptr);
         ShowWindow(windowHandle, SW_SHOWDEFAULT);
 
         SetWindowLongPtr(windowHandle, GWLP_USERDATA, (LONG_PTR)this);

@@ -7,6 +7,23 @@
 namespace Framework::Core
 {
 
+    template<typename Type> requires std::is_pointer_v<Type>
+    void SafeDelete(Type& value)
+    {
+        delete value;
+        value = nullptr;
+    }
+
+    template<typename Type> requires std::is_pointer_v<Type>
+    void SafeRelease(Type& value)
+    {
+        if (value != nullptr)
+        {
+            value->Release();
+            value = nullptr;
+        }
+    }
+
 }
 
 #endif

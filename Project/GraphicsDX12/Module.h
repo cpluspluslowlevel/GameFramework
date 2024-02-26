@@ -3,8 +3,13 @@
 
 #include "../Core/ModuleRequireFunction.h"
 
-namespace Framework::Game::Module
+namespace Framework::GraphicsDX12
 {
+
+    namespace Module
+    {
+    }
+
 }
 
 //직접링크를 지원하기 때문에 C스타일 이름을 사용해야합니다. 따라서 네임스페이스를 사용하지 않습니다.
